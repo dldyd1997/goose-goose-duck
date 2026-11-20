@@ -1,0 +1,9 @@
+{
+  "name": "goose-goose-duck-qr",
+  "version": "1.0.0",
+  "description": "QR로 입장하는 구스구스덕 스타일 멀티플레이 웹게임",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" },
+  "dependencies": { "express": "^4.19.2", "qrcode": "^1.5.3", "ws": "^8.17.1" }
+}
