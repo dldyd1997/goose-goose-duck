@@ -8,7 +8,9 @@ const { WebSocketServer } = require('ws');
 
 const app = express();
 app.disable('x-powered-by');
-app.use(express.static(path.join(__dirname, 'public'), { maxAge: '1h' }));
+const FILES = ['index.html', 'goose.png', 'map.jpg', 'mask.png', 'title.jpg'];
+app.get('/', (_req, res) => res.sendFile(path.join(__dirname, 'index.html')));
+app.get('/:f', (req, res, next) => FILES.includes(req.params.f) ? res.sendFile(path.join(__dirname, req.params.f)) : next());
 app.get('/healthz', (_req, res) => res.send('ok'));
 
 // /qr  또는  /qr?room=abc  → 현재 주소로 들어오는 QR 코드 페이지
