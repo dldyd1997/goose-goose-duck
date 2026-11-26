@@ -175,5 +175,5 @@ setInterval(() => {
 }, PING_MS);
 
 const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => console.log('구스구스덕 서버 실행 중: http://localhost:' + PORT));
+server.listen(PORT, '0.0.0.0', () => console.log('구스구스덕 서버 실행 중: http://0.0.0:' + PORT));
 process.on('SIGTERM', () => { for (const name of [...rooms.keys()]) closeRoom(name); setTimeout(() => process.exit(0), 500); });
